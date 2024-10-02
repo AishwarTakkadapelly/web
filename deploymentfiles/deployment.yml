@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: web
-        image: takkadapelly/web:latest  # Change the image tag as needed
+        image: takkadapelly/web:xyz
         ports:
         - containerPort: 9001
