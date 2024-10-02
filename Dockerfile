@@ -1,5 +1,5 @@
-# Step 1: Use an ARM64-based Node.js 14 runtime as the base image for building
-FROM arm64v8/node:14-alpine AS build
+# Step 1: Use an x86_64 Node.js 14 runtime as the base image for building
+FROM node:14-alpine AS build
 
 # Set the working directory
 WORKDIR /app
@@ -16,8 +16,8 @@ COPY . .
 # Build the React app using Webpack (adjust this as per your build script)
 RUN npm run buildmovecloudWeb
 
-# Step 2: Create a lightweight production images
-FROM arm64v8/node:14-alpine AS production
+# Step 2: Create a lightweight production image
+FROM node:14-alpine AS production
 
 # Set the working directory
 WORKDIR /app
