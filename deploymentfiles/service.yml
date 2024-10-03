@@ -3,9 +3,9 @@ kind: Service
 metadata:
   name: web-service
 spec:
-  type: LoadBalancer  # Use LoadBalancer to expose on port 9001
+  type: LoadBalancer
   ports:
-    - port: 9001         # Port exposed to the outside
-      targetPort: 9001   # Port on which the application is running
+    - port: 9001
+      targetPort: 9001
   selector:
     app: web
