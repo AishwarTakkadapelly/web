@@ -1,21 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-deployment
-  labels:
-    app: web
+  name: your-deployment-name
+  namespace: default
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: web
+      app: your-app
   template:
     metadata:
       labels:
-        app: web
+        app: your-app
     spec:
       containers:
-      - name: web
-        image: takkadapelly/jenkins
-        ports:
-        - containerPort: 9001
+        - name: your-container-name
+          image: takkadapelly/jenkins:latest # This will be replaced dynamically in the pipeline
+          ports:
+            - containerPort: 9001
