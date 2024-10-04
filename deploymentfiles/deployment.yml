@@ -4,7 +4,7 @@ metadata:
   name: movecloud
   namespace: default
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app: movecloud
@@ -14,7 +14,14 @@ spec:
         app: movecloud
     spec:
       containers:
-        - name: jenkins
-          image: takkadapelly/jenkins:latest # This will be replaced dynamically in the pipeline
-          ports:
-            - containerPort: 9001
+      - name: jenkins
+        image: takkadapelly/jenkins:latest
+        ports:
+        - containerPort: 9001
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "1Gi"
+            cpu: "1"
